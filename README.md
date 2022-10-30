@@ -14,7 +14,7 @@ This objective of this repository is to analyse log files and fetch logs that ma
 {
   "date": "2022-10-06",
   "time": "00:00:00.000",
-  "delta": "30",      //in minutes
+  "delta": "30",
   "pattern" : "abcd"
 }
 
