@@ -9,16 +9,16 @@ Email Id : gtomar2@uic.edu
 ## Overview
 This objective of this repository is to analyse log files and fetch logs that matches a certain pattern with a certain time interval
 
-# Input parameters
+### Input parameters
 
 {
-  "date": "2022-09-27",
-  "time": "13:00:00.000",
-  "delta": "30",
+  "date": "2022-10-06",
+  "time": "00:00:00.000",
+  "delta": "30",      //in minutes
   "pattern" : "abcd"
 }
 
-#Output
+### Output
 
 { "date": "2022-10-06",
     "logs": [
