@@ -131,5 +131,5 @@ CloudWatch
         
 ## What's next?
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
-- [Go to Next Step(Step 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
+- [Go to Next Step(Step 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/akka-http-loganalyser-scala/README.md)
 - [Go to Previous Step(Step 1)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/edit/master/ModifiedLogGenerator/README.md)
