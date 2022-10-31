@@ -57,6 +57,8 @@ This framework creates a server which accepts RPC requests from client and in tu
 2. Golang
 3. Mockery
 
-
+## Navigation
+  - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
+  - [Go to previous step(Strp 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/akka-http-loganalyser-scala#readme)
 
 
