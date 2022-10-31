@@ -15,7 +15,9 @@ var (
 	port = flag.Int("port", 50051, "The server port")
 )
 
+// This function sets up the server at port 50051
 func main() {
+
 	flag.Parse()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))
 	if err != nil {

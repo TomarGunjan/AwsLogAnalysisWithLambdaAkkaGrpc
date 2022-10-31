@@ -1,5 +1,6 @@
 package constants
 
+// constant values are stored here
 var (
 	BaseUrl       string = "http://127.0.0.1:8080/"
 	IsIntervalUrl string = "isLogPresent?date=$1&time=$2&delta=$3"

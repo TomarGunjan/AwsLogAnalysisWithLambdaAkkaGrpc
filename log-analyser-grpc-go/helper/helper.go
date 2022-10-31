@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+// This file contains helper function for the service to make HTTP calls
 type Helper interface {
 	MakeHttpCall(ctx context.Context, url string) (*http.Response, error)
 }
@@ -12,7 +13,7 @@ type Helper interface {
 type helper struct {
 }
 
-func GetHelper() (Helper) {
+func GetHelper() Helper {
 	return &helper{}
 }
 
