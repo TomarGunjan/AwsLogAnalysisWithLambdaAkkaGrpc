@@ -19,10 +19,10 @@ type LogAnalyserService struct {
 
 func (l *LogAnalyserService) GetMessageInInterval(ctx context.Context, in *proto.GetMessageInIntervalRequest) (*proto.GetMessageInIntervalResponse, error) {
 	url := constants.BaseUrl + constants.GetLogsUrl
-	url = strings.Replace(url, "$1", in.Date, 1)
-	url = strings.Replace(url, "$2", in.Time, 1)
-	url = strings.Replace(url, "$3", in.Delta, 1)
-	url = strings.Replace(url, "$4", in.Pattern, 1)
+	url = strings.Replace(url, constants.Value1, in.Date, 1)
+	url = strings.Replace(url, constants.Value2, in.Time, 1)
+	url = strings.Replace(url, constants.Value3, in.Delta, 1)
+	url = strings.Replace(url, constants.Value4, in.Pattern, 1)
 	//resp, err := http.Get(url)
 	resp, err := l.helper.MakeHttpCall(ctx, url)
 	if err != nil {
