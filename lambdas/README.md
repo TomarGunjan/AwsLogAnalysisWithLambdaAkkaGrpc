@@ -126,13 +126,8 @@ CloudWatch
         ``` {"isPresent": true} ```
 2. Get Logs API
     - provides date for the query log, and a list containing 1. md5 has for matched string and its timestamp
-      ```{
-    "date": "2022-10-06",
-    "logs": [
-        {
-            "messageHash": "b'\\xb3+\\x9c\\x7f\\xfb3Q\\x00\\x98\\xdd\\x13c\\x16n\\xb4%'",
-            "time": "00:29:21.017"
-        },]}```
+    
+      ```{"date": "2022-10-06","logs": [{"messageHash": "b'\\xb3+\\x9c\\x7f\\xfb3Q\\x00\\x98\\xdd\\x13c\\x16n\\xb4%'","time": "00:29:21.017" },]}```
         
 ## What's next?
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
