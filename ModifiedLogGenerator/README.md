@@ -46,7 +46,11 @@ We are going to mount EFS on our EC2 instance and utilize it.
       - curl -L https://www.scala-sbt.org/sbt-rpm.repo > sbt-rpm.repo
       - sudo mv sbt-rpm.repo /etc/yum.repos.d/
       - sudo yum install sbt
-    - using winscp or git copy the log generator to your EC2 instance
+    - using winscp or git copy the [log generator](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/ModifiedLogGenerator/LogFileGenerator) to your EC2 instance
+    - Set up a cronscript in your EC2 instance to run project periodically
+        - create a script cronscript.sh and provide command "cd (to LogGenerator Project); sbt clean compile run;
+        - keep the script in home folder (ec2-user)
+        - Type crontab -e and set cron expression ex 00 00 * * * path to cronscript 
  
  4. Mounting EFS to EC2
     - Run following command in your instance to get Amazon-EFS Tools
