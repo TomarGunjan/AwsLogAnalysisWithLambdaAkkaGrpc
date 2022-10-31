@@ -68,3 +68,8 @@ We are going to mount EFS on our EC2 instance and utilize it.
 
 - [AWS Guide](https://aws.amazon.com/)
 - [LogGenerator Project by Prof. Mark Grechanik](https://github.com/TomarGunjan/CS441_Fall2022/tree/main/LogFileGenerator)
+
+## Next Step
+
+- [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
+- [Go to Step 2](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
