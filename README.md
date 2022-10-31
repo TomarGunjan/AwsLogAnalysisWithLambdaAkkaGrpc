@@ -32,7 +32,7 @@ This objective of this repository is to analyse log files and fetch logs that ma
 
 1. [Modified Log Generator Project (Original by by Prof. Mark Grechanik) Deployment on EC2 and its integration with AWS EFS](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/ModifiedLogGenerator/README.md)
 2. [Setting up Lambda Service with API Gateway an its integration with AWS EFS](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
-3. [Setting up Akka Http Server connecting to Lambda Services](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/edit/master/akka-http-loganalyser-scala/README.md)
+3. [Setting up Akka Http Server connecting to Lambda Services](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/akka-http-loganalyser-scala/README.md)
 4. [Setting up GRPC server and client with server connecting to Akka Http Server](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/log-analyser-grpc-go/README.md)
 
 We will first set up a Log Generator project in EC2 instance and connect to EFS where the generated logs would be stored. We will then create Lambda Function and connect them to same access so they can run analytics on generated logs. We will then expose these lambda functions using API Gateway. We can connect to the gateway APIs using any REST Client. We will then create a Akka Http Application which would interact with gateway APIs and expose a endpoint . We will then create a grpc server which will connect exposed endpoint of AKKA HTTP application. We will Lastly create a GRPC Client to test GRPC server
