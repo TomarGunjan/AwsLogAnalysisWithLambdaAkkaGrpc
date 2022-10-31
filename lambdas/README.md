@@ -103,7 +103,7 @@ CloudWatch
     
  ## API Input and Output
  
- # Input
+ ### Input
  
  1. Check Logs Api
    - takes follwoing query parameter
@@ -119,7 +119,7 @@ CloudWatch
         4. pattern
   - **Note** - pattern should be encoded when hitting the endpoint from postman. Just right click on pattern string and select encode
 
-# Output
+### Output
 
 1. Check Logs Api '
     - provides a flag to tell if there are any logs entry present for input time interval
