@@ -18,6 +18,10 @@ We are using EFS as file system created in Step 1 as file system for AWS Lambda
 - AWS Elastic File Storage(EFS)
 - AWS API Gateway Trigger
 
+## What are we doing?
+ 
+We are creating lambda functions and selecting EFS as file system for them so that both Log Generator in EC2 instance and Lambda function would be able to access a common space in efs. Log Generator would be creating data and AWS Lambda would be running function son that data. We are also setting AWS API Gateway as trigger for Lambda functions so that they can be accesses using HTTP endpoints
+
 ## SetUp
 
 1. Creating IAM role for AWS Lambda
@@ -76,4 +80,61 @@ We are using EFS as file system created in Step 1 as file system for AWS Lambda
     - Select "Deployment Stage" as stage
     - Click on Add
  7. Follow steps 2 to 6 for creating second lambda Function
+CloudWatch
+## Testing
 
+1. AWS Testing 
+    - Click on Test Tab under Lambda Function and provide following payload under Event Json
+    {
+  "queryStringParameters": {
+    "date": "2022-10-30",
+    "time": "20:04:00.000",
+    "delta": "30",
+    "pattern": "([a-c][e-g][0-3]|[A-Z][5-9][f-w]){5,15}"
+  }
+}
+    - Click on Test button. You can also check Logs under Monitor Tab which takes us to CloudWatch
+    
+ 2. Testing using API Gateway 
+    - Navigate to Configurations->Triggers
+    - You will find the endpoint for the api there
+    - The lambda function can be tested using Postman or curl. A sample curl for checklogs api is following
+    curl --location --request GET 'https://peh6k1md85.execute-api.us-east-1.amazonaws.com/Prod/logcheck?time=13:00:00.000&date=2022-09-27&delta=30'
+    
+ ## API Input and Output
+ 
+ # Input
+ 
+ 1. Check Logs Api
+   - takes follwoing query parameter
+         1. time
+         2. date
+         3. delta
+
+2. Get Logs Api
+  - takes following query parameter
+        1. time
+        2. delta
+        3. date
+        4. pattern
+  - **Note** - pattern should be encoded when hitting the endpoint from postman. Just right click on pattern string and select encode
+
+# Output
+
+1. Check Logs Api '
+    - provides a flag to tell if there are any logs entry present for input time interval
+        ``` {"isPresent": true} ```
+2. Get Logs API
+    - provides date for the query log, and a list containing 1. md5 has for matched string and its timestamp
+      ```{
+    "date": "2022-10-06",
+    "logs": [
+        {
+            "messageHash": "b'\\xb3+\\x9c\\x7f\\xfb3Q\\x00\\x98\\xdd\\x13c\\x16n\\xb4%'",
+            "time": "00:29:21.017"
+        },]}```
+        
+## What's next?
+- [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
+- [Go to Next Step(Step 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
+- [Go to Previous Step(Step 1)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/edit/master/ModifiedLogGenerator/README.md)
