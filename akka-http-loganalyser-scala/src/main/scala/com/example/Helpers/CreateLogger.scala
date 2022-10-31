@@ -4,6 +4,7 @@ import org.slf4j.{Logger, LoggerFactory}
 
 import scala.util.{Failure, Success, Try}
 
+//Utility class for creating logger
 object CreateLogger {
   def apply[T](class4Logger: Class[T]): Logger = {
     val LOGBACKXML = "logback.xml"

@@ -3,6 +3,8 @@ package com.example.Helpers
 import com.typesafe.config.{Config, ConfigFactory}
 import scala.util.{Failure, Success, Try}
 
+
+//Utility class for Fetching configs
 object GetConfig {
   private val config = ConfigFactory.load()
   private val logger = CreateLogger(classOf[GetConfig.type ])
