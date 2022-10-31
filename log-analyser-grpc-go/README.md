@@ -59,6 +59,6 @@ This framework creates a server which accepts RPC requests from client and in tu
 
 ## Navigation
   - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
-  - [Go to previous step(Strp 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/akka-http-loganalyser-scala#readme)
+  - [Go to previous step(Step 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/akka-http-loganalyser-scala#readme)
 
 
