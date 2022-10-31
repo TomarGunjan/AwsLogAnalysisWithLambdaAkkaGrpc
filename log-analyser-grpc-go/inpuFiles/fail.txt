@@ -1,0 +1,6 @@
+{
+  "date": "2022-10-06",
+  "time": "00:50:00.000",
+  "delta": "30",
+  "pattern": "aaaaaaaaaaaaaaaa"
+}

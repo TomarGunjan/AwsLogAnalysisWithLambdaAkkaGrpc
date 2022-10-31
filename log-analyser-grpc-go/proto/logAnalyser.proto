@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "proto/";
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+
+package logAnalyser;
+
+service logAnalyserService {
+  rpc GetMessageInInterval(GetMessageInIntervalRequest) returns (GetMessageInIntervalResponse) {}
+}
+
+
+message GetMessageInIntervalRequest {
+  string date=1;
+  string time=2;
+  string delta=3;
+  string pattern=4;
+}
+
+message GetMessageInIntervalResponse {
+  string date=1;
+  repeated Log logs =2;
+}
+
+message Log {
+  string time=1;
+  string messageHash=2;
+}
+
+
