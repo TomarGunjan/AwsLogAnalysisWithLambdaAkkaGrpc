@@ -85,7 +85,7 @@ Wev are going to create an EC2 instance and upload our Log Generator project to 
 ## Next Step
 
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc)
-- [Go to Step 2](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
+- [Go to Step 2](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/lambdas)
 
 
 ## YouTube Video Link
