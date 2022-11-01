@@ -4,6 +4,8 @@ from datetime import datetime
 from datetime import timedelta
 import re
 import logging
+import sys
+import os
 
 # import requests
 
@@ -41,31 +43,40 @@ def message_exist(date, start_time, end_time):
     return False
     
 def message_exist1(date, start_time, end_time):
-fileName = "LogFileGenerator."+date+".log"
-s3 = boto3.resource('s3')
-bkt = s3.Bucket("mylogfiles")
-for objs in bkt.objects.all():
-    if objs.key==fileName:
-        content = objs.get()['Body'].read().decode('utf-8')
-        lines = content.split("\n")
-        return checkTimeBound(lines, start_time, end_time)
-
-return False
+    fileName = "LogFileGenerator."+date+".log"
+    s3 = boto3.resource('s3')
+    bkt = s3.Bucket("mylogfiles")
+    for objs in bkt.objects.all():
+        if objs.key==fileName:
+            content = objs.get()['Body'].read().decode('utf-8')
+            lines = content.split("\n")
+            return checkTimeBound(lines, start_time, end_time)
+    
+    return False
 
 
 
 def lambda_handler(event, context):
-    logger.info("lambda function LogCheck started")
+    logging.info("lambda function LogCheck started")
     date = event["queryStringParameters"]['date']
     time = event["queryStringParameters"]['time']
     delta = float(event["queryStringParameters"]['delta'])
-    logger.info("event received")
-    logger.info(event)
+    logging.info("event received")
+    logging.info(event)
     inputTime = datetime.strptime(time, timeFormat)
     startTime = inputTime-timedelta(minutes=delta)
     endTime = inputTime + timedelta(minutes=delta)
-    found=message_exist(date,startTime,endTime)
-    logger.info("successfully retrieved data")
+    try:
+        found=message_exist(date,startTime,endTime)
+    except Exception as e:
+        return {
+            "statusCode": 500,
+            "body": json.dumps({
+                "error": str(e),
+            }),
+        }
+            
+    logging.info("successfully retrieved data")
     return {
         "statusCode": 200,
         "body": json.dumps({
