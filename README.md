@@ -49,6 +49,7 @@ We will first set up a Log Generator project in EC2 instance and connect to EFS 
 - Akka Http Framework with Scala
 - GRPC Framework with GOLANG
 
+## Youtube Video
 
-
+https://www.youtube.com/watch?v=_2dwsv7h30o
 
