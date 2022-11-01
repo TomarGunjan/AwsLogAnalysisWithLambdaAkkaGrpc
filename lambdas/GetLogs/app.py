@@ -4,7 +4,7 @@ from datetime import datetime
 from datetime import timedelta
 import re
 import logging
-import sys
+import hashlib
 import os
 
 # import requests
@@ -13,23 +13,57 @@ lines = []
 timeFormat = "%H:%M:%S.%f"
 
 def getTime(line):
-    cnts = re.split("\s+", line)
-    return datetime.strptime(cnts[0], timeFormat)
-
-def checkTimeBound(lines, startTime, endTime):
-    firstLogTime = getTime(lines[0])
-    lastLogTime = getTime(lines[len(lines)-2])
-    return (
-            (
-                (startTime<=firstLogTime)and(firstLogTime<=endTime)
-            )or
-            (
-                (startTime<=lastLogTime)
-            )
-    )
+    content = re.split("\s+", line)
+    return datetime.strptime(content[0], timeFormat)
 
 
-def message_exist(date, start_time, end_time):
+
+def getIdx(lines, time, start, end):
+    if(start==end):
+        return start
+    if(end<start):
+        return start
+    mid=int((start+end)/2)
+    mid_time = getTime(lines[mid])
+    if (time>mid_time) :
+        return getIdx(lines, time, mid+1, end)
+    elif (time<mid_time):
+        return getIdx(lines, time, start, mid-1)
+    else :
+        return mid
+
+
+def findMatchingMessageList(startidx, endidx, lines, pattern):
+    messages=[]
+    for i in range(startidx, endidx+1):
+        content = re.split("\s+", lines[i])
+        patternRegex = re.compile(pattern)
+        print("index",i)
+        print(lines[i])
+        print(content)
+        grps = patternRegex.search(content[5])
+        
+        if(grps!=None):
+            result = hashlib.md5(grps.group(0).encode())
+            messages.append({"time":content[0],"messageHash":str(result.digest())})
+    return messages
+
+
+
+def getLogList1(date, start_time, end_time, pattern):
+    fileName = "LogFileGenerator." + date + ".log"
+    s3 = boto3.resource('s3')
+    bkt = s3.Bucket("mylogfiles")
+    for objs in bkt.objects.all():
+        if objs.key == fileName:
+            content = objs.get()['Body'].read().decode('utf-8')
+            lines = content.split("\n")
+            startidx = getIdx(lines,start_time,0,len(lines)-2)
+            endidx = getIdx(lines, end_time, 0, len(lines)-2)
+            return findMatchingMessageList(startidx, endidx, lines, pattern)
+    return []
+    
+def getLogList(date, start_time, end_time, pattern):
     fileName = "LogFileGenerator." + date + ".log"
     path = "/mnt/efs"
     for file in os.listdir(path):
@@ -38,49 +72,28 @@ def message_exist(date, start_time, end_time):
                 f = open(os.path.join(path, file),"r")
                 content = f.read()
                 lines = content.split("\n")
-                return checkTimeBound(lines, start_time, end_time)
-
-    return False
-    
-def message_exist1(date, start_time, end_time):
-    fileName = "LogFileGenerator."+date+".log"
-    s3 = boto3.resource('s3')
-    bkt = s3.Bucket("mylogfiles")
-    for objs in bkt.objects.all():
-        if objs.key==fileName:
-            content = objs.get()['Body'].read().decode('utf-8')
-            lines = content.split("\n")
-            return checkTimeBound(lines, start_time, end_time)
-    
-    return False
-
-
+                startidx = getIdx(lines,start_time,0,len(lines)-2)
+                endidx = getIdx(lines, end_time, 0, len(lines)-2)
+                return findMatchingMessageList(startidx, endidx, lines, pattern)
+    return []
 
 def lambda_handler(event, context):
-    logging.info("lambda function LogCheck started")
-    date = event["queryStringParameters"]['date']
-    time = event["queryStringParameters"]['time']
-    delta = float(event["queryStringParameters"]['delta'])
-    logging.info("event received")
+    logging.info("lambda function started")
+    date = event['queryStringParameters']['date']
+    time = event['queryStringParameters']['time']
+    delta = float(event['queryStringParameters']['delta'])
+    pattern = event['queryStringParameters']["pattern"]
+    logging.info("##event received")
     logging.info(event)
     inputTime = datetime.strptime(time, timeFormat)
     startTime = inputTime-timedelta(minutes=delta)
     endTime = inputTime + timedelta(minutes=delta)
-    try:
-        found=message_exist(date,startTime,endTime)
-    except Exception as e:
-        return {
-            "statusCode": 500,
-            "body": json.dumps({
-                "error": str(e),
-            }),
-        }
-            
-    logging.info("successfully retrieved data")
+    list=getLogList(date,startTime,endTime, pattern)
+    logging.info("successfully retrieved log data")
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "isPresent": found,
+            "date": date,
+            "logs":list
         }),
     }
-
