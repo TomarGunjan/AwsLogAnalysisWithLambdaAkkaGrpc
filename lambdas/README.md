@@ -1,4 +1,4 @@
-# Lambda Functions for Chceking if Log Exists and fetching the logs
+# Step 2- Lambda Functions for Chceking if Log Exists and fetching the logs
 
 ## AWS Lambda
 
@@ -21,6 +21,15 @@ We are using EFS as file system created in Step 1 as file system for AWS Lambda
 ## What are we doing?
  
 We are creating lambda functions and selecting EFS as file system for them so that both Log Generator in EC2 instance and Lambda function would be able to access a common space in efs. Log Generator would be creating data and AWS Lambda would be running function son that data. We are also setting AWS API Gateway as trigger for Lambda functions so that they can be accesses using HTTP endpoints
+
+## About Lambda Functions in this project
+
+1. Check Logs - This lambda function accepts date, time and delta . It then calculates start time and end time using time and delta. It searches file using the date provided. Once found it checks for the first and last entry for following possible combinations. If any present true is returned, else false is returned.
+
+    ![image](https://user-images.githubusercontent.com/26132783/199360626-343c379b-fc05-4089-bbac-a567687a6df5.png)
+    
+2. Get Logs - This lambda function accepts date, time, delta and pattern. Using time and delta start time and end time are calculated first. Then using binary search the index of start time and end time are calculated in the file for requested date. The logs abetween start and end index are then matched for the pattern. A list of matching message hash along with time stamp and date is returned from this function.
+
 
 ## SetUp
 
@@ -133,3 +142,7 @@ CloudWatch
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
 - [Go to Next Step(Step 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/akka-http-loganalyser-scala/README.md)
 - [Go to Previous Step(Step 1)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/edit/master/ModifiedLogGenerator/README.md)
+
+## Youtube Video
+
+https://www.youtube.com/watch?v=_2dwsv7h30o
