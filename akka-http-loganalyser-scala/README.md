@@ -68,7 +68,7 @@ curl --location --request GET 'http://127.0.0.1:8080/getLogs?time=00:50:00.000&d
   
 ## What's Next?
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc)
-- [Go to Final Step(Step 4)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/akka-http-loganalyser-scala)
+- [Go to Final Step(Step 4)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/log-analyser-grpc-go)
 - [Go to Previous Step(Step 2)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/lambdas)
 
 ## Youtube video
