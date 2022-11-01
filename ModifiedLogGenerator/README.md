@@ -1,4 +1,11 @@
-# Deploying Modified Log Generator on EC2 and its integration with EFS
+# Step 1 - Deploying Modified Log Generator on EC2 and its integration with EFS
+
+Submitted By - Gunjan Tomar
+
+UIN - 674659382
+
+Email Id : gtomar2@uic.edu
+
 
 ## Overview
 This repository is Step 1 of Homework 2 Project AwsLogAnalysisWithLambdaAkkaGrpc and describes changes in Log Generator and its deployment
@@ -15,6 +22,10 @@ We are going to mount EFS on our EC2 instance and utilize it.
 
 ## Pre-requisites
 - Valid AWS Account
+
+## What are we doing?
+
+Wev are going to create an EC2 instance and upload our Log Generator project to it . The project has been modified to create logs in a directory by name efs. We will then mount EFS into this directory so it becomes a shared space and the data can be accessed by Lambda function having the same EFS instance as their file system. We are then going to create a cron script so that out project runs periodically.
 
 ## Setup
 
@@ -47,10 +58,6 @@ We are going to mount EFS on our EC2 instance and utilize it.
       - sudo mv sbt-rpm.repo /etc/yum.repos.d/
       - sudo yum install sbt
     - using winscp or git copy the [log generator](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/ModifiedLogGenerator/LogFileGenerator) to your EC2 instance
-    - Set up a cronscript in your EC2 instance to run project periodically
-        - create a script cronscript.sh and provide command "cd (to LogGenerator Project); sbt clean compile run;
-        - keep the script in home folder (ec2-user)
-        - Type crontab -e and set cron expression ex 00 00 * * * path to cronscript 
  
  4. Mounting EFS to EC2
     - Run following command in your instance to get Amazon-EFS Tools
@@ -59,6 +66,12 @@ We are going to mount EFS on our EC2 instance and utilize it.
     - Navigate to EFS created in Step and click on Attach
     - Copy command given under EFS mount helper and run it on your EC2 instance inside Log Generator project folder
     - Change permissions for efs folder to 777
+
+5. Set up a cronscript in your EC2 instance to run project periodically
+        - create a script cronscript.sh and provide command "cd (to LogGenerator Project); sbt clean compile run;
+        - set permission for cronscript to 777
+        - keep the script in home folder (ec2-user)
+        - Type crontab -e and set cron expression ex 00 00 * * * path to cronscript 
 
  ## Changes in Log Generator Project
  
@@ -73,3 +86,8 @@ We are going to mount EFS on our EC2 instance and utilize it.
 
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
 - [Go to Step 2](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
+
+
+## YouTube Video Link
+
+https://www.youtube.com/watch?v=_2dwsv7h30o
