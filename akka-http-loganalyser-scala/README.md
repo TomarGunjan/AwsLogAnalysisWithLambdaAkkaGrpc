@@ -14,11 +14,11 @@ To Setup AkkaHttp Server to interact with AWS Lambda APIs
 
 1. Install SBT
 2. Install Java 11
-3. [Previous step](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md) should be complete and Lambda Services should be up on AWS
+3. [Previous step](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/lambdas) should be complete and Lambda Services should be up on AWS
 
 ## What are we doing?
  
-We are setting up a AkkaHttp server in Scala. We would be running this on ou machine. This server exposes Get endpoint . We would be using Postman or some other Rest Client to interact with it. This server acts as a client for Lambda API Gateway and interact with GetLogs and CheckLogs api created in [previous Step](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
+We are setting up a AkkaHttp server in Scala. We would be running this on ou machine. This server exposes Get endpoint . We would be using Postman or some other Rest Client to interact with it. This server acts as a client for Lambda API Gateway and interact with GetLogs and CheckLogs api created in [previous Step](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/lambdas)
 
 ## About The Project
 
@@ -68,7 +68,7 @@ curl --location --request GET 'http://127.0.0.1:8080/getLogs?time=00:50:00.000&d
   
 ## What's Next?
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc)
-- [Go to Final Step(Step 4)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/akka-http-loganalyser-scala/README.md)
+- [Go to Final Step(Step 4)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/akka-http-loganalyser-scala)
 - [Go to Previous Step(Step 2)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/lambdas)
 
 ## Youtube video
