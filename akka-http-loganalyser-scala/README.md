@@ -61,6 +61,6 @@ curl --location --request GET 'http://127.0.0.1:8080/getLogs?time=00:50:00.000&d
   ```{"error":"The data you are looking for is not currently present"}```
   
 ## What's Next?
-- [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
+- [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc)
 - [Go to Final Step(Step 4)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/akka-http-loganalyser-scala/README.md)
 - [Go to Previous Step(Step 2)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
