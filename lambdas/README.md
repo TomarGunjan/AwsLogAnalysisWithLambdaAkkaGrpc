@@ -149,7 +149,7 @@ CloudWatch
       ```{"date": "2022-10-06","logs": [{"messageHash": "b'\\xb3+\\x9c\\x7f\\xfb3Q\\x00\\x98\\xdd\\x13c\\x16n\\xb4%'","time": "00:29:21.017" },]}```
         
 ## What's next?
-- [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
+- [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc)
 - [Go to Next Step(Step 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/akka-http-loganalyser-scala)
 - [Go to Previous Step(Step 1)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/edit/master/ModifiedLogGenerator/README.md)
 
