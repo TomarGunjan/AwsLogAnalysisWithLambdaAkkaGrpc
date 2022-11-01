@@ -20,7 +20,7 @@ We are using EFS as file system created in Step 1 as file system for AWS Lambda
 
 ## Pre Requisites
 
-1. [Step 1](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/ModifiedLogGenerator/README.md) should be complete and EFS should be setup
+1. [Step 1](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/ModifiedLogGenerator) should be complete and EFS should be setup
 
 ## Technology used
 
@@ -69,7 +69,7 @@ We are creating lambda functions and selecting EFS as file system for them so th
     - Navigate to details of created function
     - Go to Configuration -> File Systems
     - Click on Add File System
-    - Select File System Created while setting up [Log Generator](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/ModifiedLogGenerator/README.md)
+    - Select File System Created while setting up [Log Generator](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/ModifiedLogGenerator)
     - Select available Access point(created while setting up Log Generator)
     - provide local mount path values as /mnt/efs
     - Click on Save
@@ -151,7 +151,7 @@ CloudWatch
 ## What's next?
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc)
 - [Go to Next Step(Step 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/akka-http-loganalyser-scala)
-- [Go to Previous Step(Step 1)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/edit/master/ModifiedLogGenerator/README.md)
+- [Go to Previous Step(Step 1)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/ModifiedLogGenerator)
 
 ## Youtube Video
 
