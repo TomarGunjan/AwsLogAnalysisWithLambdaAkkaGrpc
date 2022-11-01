@@ -61,9 +61,9 @@ We are creating lambda functions and selecting EFS as file system for them so th
     - Setting up VPC and File System
       - Click on Advanced Settings
       - Click on Enable VPC
-      - Select VPC created while setting up [EFS in Log generator](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/ModifiedLogGenerator/README.md)
+      - Select VPC created while setting up [EFS in Log generator](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/ModifiedLogGenerator)
       - Choose 2 subnets including the area where you are creating your lambda function
-      - Select Default Security group created during setup of [EFS in Log generator](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/ModifiedLogGenerator/README.md)
+      - Select Default Security group created during setup of [EFS in Log generator](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/ModifiedLogGenerator)
     - Click on Create Function
 3. Setting up File System for Lambda Function
     - Navigate to details of created function
