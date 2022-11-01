@@ -18,6 +18,10 @@ API Gateway provides tools for creating and documenting web APIs that route HTTP
 
 We are using EFS as file system created in Step 1 as file system for AWS Lambda
 
+## Pre Requisites
+
+1. [Step 1](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/ModifiedLogGenerator/README.md) should be complete and EFS should be setup
+
 ## Technology used
 
 - AWS Lambda
