@@ -1,5 +1,11 @@
 # Rest Akka Http Framework to make Request AWS Lambda Gateway APIs
 
+Submitted By - Gunjan Tomar
+
+UIN - 674659382
+
+Email Id : gtomar2@uic.edu
+
 ## Overview
 
 To Setup AkkaHttp Server to interact with AWS Lambda APIs
@@ -12,7 +18,7 @@ To Setup AkkaHttp Server to interact with AWS Lambda APIs
 
 ## What are we doing?
  
-We are setting up a AkkaHttp server in Scala. We would be running this on ou machine. This server exposes Get endpoint . We would be using Postman or some other Rest Client to interact with it. This server acts as a client for Lambda API Gateway and interact with GetLogs and CheckLogs api created in [previous Step](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/lambdas)
+We are setting up a AkkaHttp server in Scala. We would be running this on ou machine. This server exposes Get endpoint . We would be using Postman or some other Rest Client to interact with it. This server acts as a client for Lambda API Gateway and interact with GetLogs and CheckLogs api created in [previous Step](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
 
 ## About The Project
 
@@ -58,7 +64,7 @@ curl --location --request GET 'http://127.0.0.1:8080/getLogs?time=00:50:00.000&d
 1. Success Response Status - 200
   ```{"date": "2022-10-06","logs": [{"messageHash": "b'\\xb3+\\x9c\\x7f\\xfb3Q\\x00\\x98\\xdd\\x13c\\x16n\\xb4%'","time": "00:29:21.017" },]}```
 2. Error Response Status 404
-  ```{"error":"The data you are looking for is not currently present"}```
+  ```{"error":"The requested resource could not be found but may be available again in the future"}```
   
 ## What's Next?
 - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc)
