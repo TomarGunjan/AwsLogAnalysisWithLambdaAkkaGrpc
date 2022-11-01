@@ -31,7 +31,7 @@ This objective of this repository is to analyse log files and fetch logs that ma
 ## Steps for the project
 
 1. [Modified Log Generator Project (Original by by Prof. Mark Grechanik) Deployment on EC2 and its integration with AWS EFS](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/ModifiedLogGenerator)
-2. [Setting up Lambda Service with API Gateway an its integration with AWS EFS](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/lambdas/README.md)
+2. [Setting up Lambda Service with API Gateway an its integration with AWS EFS](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/lambdas)
 3. [Setting up Akka Http Server connecting to Lambda Services](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/akka-http-loganalyser-scala/README.md)
 4. [Setting up GRPC server and client with server connecting to Akka Http Server](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/log-analyser-grpc-go/README.md)
 
