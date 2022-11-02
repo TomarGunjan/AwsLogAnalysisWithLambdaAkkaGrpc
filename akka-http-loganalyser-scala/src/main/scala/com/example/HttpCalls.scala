@@ -42,10 +42,7 @@ class HttpCalls {
   // This function prepares request for hitting CheckLogs Api and check if logs are present for requested duration
   def CheckLogPresent(date: String, time: String, delta: String): IsLogFound = {
     logger.info("checking if logs presented for requested interval")
-    var requrl: String = checkLogUri
-    requrl = requrl.replace(dummyTime, time)
-    requrl = requrl.replace(dummyDate, date)
-    requrl = requrl.replace(dummyDelta, delta)
+    val requrl: String = checkLogUri.replace(dummyTime, time).replace(dummyDate, date).replace(dummyDelta, delta)
     val request = HttpRequest(
       method = HttpMethods.GET,
       uri = requrl
@@ -60,11 +57,7 @@ class HttpCalls {
   // falling in requested interval
   def getLogByPattern(date: String, time: String, delta: String, pattern: String): Logs = {
     logger.info("fetching logs matching the requested pattern")
-    var requrl: String = getLogUri
-    requrl = requrl.replace(dummyTime, time)
-    requrl = requrl.replace(dummyDate, date)
-    requrl = requrl.replace(dummyPattern, pattern)
-    requrl = requrl.replace(dummyDelta, delta)
+    val requrl: String = getLogUri.replace(dummyTime, time).replace(dummyDate, date).replace(dummyPattern, pattern).replace(dummyDelta, delta)
     val request = HttpRequest(
       method = HttpMethods.GET,
       uri = requrl
