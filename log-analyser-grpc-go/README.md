@@ -1,5 +1,10 @@
-# Log-Analyser-GRPC-GO
-## GRPC framework for setting up Server and Client for fetching Logs Data
+# Step 4 - ## GRPC framework for setting up Server and Client for fetching Logs Data
+
+Submitted By - Gunjan Tomar
+
+UIN - 674659382
+
+Email Id : gtomar2@uic.edu
 
 ## Overview
 
@@ -8,6 +13,13 @@ This framework creates a server which accepts RPC requests from client and in tu
 ## Pre-Requisites
 1. Go should be installed and GOPATH should be setup
 2. [Previous Step](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/akka-http-loganalyser-scala#readme) should be completed and AkkaHttp Application Server should be up and running
+
+## What are we doing?
+
+We have first created a [proto](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/log-analyser-grpc-go/proto/logAnalyser.proto) file with logService and getLogs rpc. We then compiled the proto code to [stub code](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/log-analyser-grpc-go/proto) (protoc --go_out=. --proto_path=proto .\proto\logAnalyser.proto --go-grpc_out=. --proto_path=proto .\proto\logAnalyser.proto ). A new Service was the created to implement the stub code and corresponding rpc function. This function interacts with AkkaHttp application created in [previous step](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/akka-http-loganalyser-scala). 
+
+We then created a server file to run the service and lastly a client to connect to server.
+
 
 ## Project Structure
 
@@ -49,7 +61,7 @@ This framework creates a server which accepts RPC requests from client and in tu
 1. Success Response Status - 200
   ```{"date": "2022-10-06","logs": [{"messageHash": "b'\\xb3+\\x9c\\x7f\\xfb3Q\\x00\\x98\\xdd\\x13c\\x16n\\xb4%'","time": "00:29:21.017" },]}```
 2. Error Response Status 404
-  ```{"error":"The data you are looking for is not currently present"}```
+  ```{"error":"The requested resource could not be found but may be available again in the future"}```
   
   
 ## Technology Used
@@ -61,4 +73,6 @@ This framework creates a server which accepts RPC requests from client and in tu
   - [Go to main Project](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/README.md)
   - [Go to previous step(Step 3)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/tree/master/akka-http-loganalyser-scala#readme)
 
+## Youtube video
 
+https://www.youtube.com/watch?v=_2dwsv7h30o
