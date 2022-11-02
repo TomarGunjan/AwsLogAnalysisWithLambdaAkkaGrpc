@@ -56,7 +56,7 @@ class TestSuite extends AnyFlatSpec with Matchers {
 
   behavior of "Configuration parameters module"
   // App Config Tests
-  var config = GetConfig("my-app") match {
+  val config = GetConfig("my-app") match {
     case Some(value) => value.getConfig("my-app")
     case None => throw new RuntimeException("Cannot obtain reference to the Config data")
   }
