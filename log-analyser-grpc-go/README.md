@@ -1,4 +1,4 @@
-# Step 4 - ## GRPC framework for setting up Server and Client for fetching Logs Data
+# Step 4 - GRPC framework for setting up Server and Client for fetching Logs Data
 
 Submitted By - Gunjan Tomar
 
