@@ -44,7 +44,7 @@ We will first set up a Log Generator project in EC2 instance and connect to EFS 
 }
 
 
-### Technologies and Languagesused
+### Technologies and Languages used
 
 - [Modified Log Generator Project (Original by by Prof. Mark Grechanik)](https://github.com/TomarGunjan/AwsLogAnalysisWithLambdaAkkaGrpc/blob/master/ModifiedLogGenerator/README.md)
 - AWS EC2
